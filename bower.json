@@ -1,0 +1,31 @@
+{
+  "name": "spinny-demo",
+  "version": "0.0.0",
+  "authors": [
+    "Abhijit Sinha"
+  ],
+  "description": "spinny-demo",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "~1.3.14",
+    "angular-animate": "~1.3.14",
+    "angular-aria": "~1.3.14",
+    "angular-route": "~1.3.14",
+    "angular-sanitize": "~1.3.14",
+    "font-awsome": "~4.3.0",
+    "bootstrap":"~3.3.5",
+    "moment": "~2.9.0"
+  }
+}
