@@ -43,7 +43,7 @@ gulp.task('sitecss', function () {
     './bower_components/angular/angular-csp.css',
     './bower_components/font-awsome/css/font-awesome.css',
     './bower_components/bootstrap/dist/css/bootstrap.min.css',
-    './content/styles/*.css'
+    './content/*.css'
     ];
      gulp.src(vendorcss).pipe(minifyCSS()).pipe(concat('site.min.css'))
      .pipe(gulp.dest('build/vendor')).pipe(notify({
@@ -59,7 +59,7 @@ gulp.task('watch',function(){
     gulp.run('appmodules');
   });
 
-gulp.watch('./content/styles/*.css',function(){
+gulp.watch('./content/*.css',function(){
     gulp.run('sitecss');
   });
 });

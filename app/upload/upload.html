@@ -1,1 +1,14 @@
-hello
+<section data-ng-controller="Upload">
+    <ul>
+        <li ng-repeat="i in imagePlaceholder" class="imageContainer col-md-4">
+            <div class="fileDropZone" drag-image-files="[image/png, image/jpeg, image/gif]"
+                          file="image" file-name="imageFileName">
+              <span>Drop Image Here</span>
+            </div>
+            <div class="displayImage">
+              <img ng-src={{image}} />
+              <span class="file-name">{{imageFileName}}</span>
+            </div>
+        </li>
+    </ul>
+</section>
