@@ -42,8 +42,7 @@ gulp.task('sitecss', function () {
     var vendorcss = [
     './bower_components/angular/angular-csp.css',
     './bower_components/font-awsome/css/font-awesome.css',
-    './bower_components/bootstrap/dist/css/bootstrap.min.css',
-    './content/*.css'
+    './bower_components/bootstrap/dist/css/bootstrap.min.css'
     ];
      gulp.src(vendorcss).pipe(minifyCSS()).pipe(concat('site.min.css'))
      .pipe(gulp.dest('build/vendor')).pipe(notify({

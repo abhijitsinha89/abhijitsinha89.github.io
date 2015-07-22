@@ -39,10 +39,10 @@ app.directive('dragImageFiles', function() {
 					reader = new FileReader();
 
 					file = event.dataTransfer.files[0];
+					reader.readAsDataURL(file);
 					name = file.name;
 					type = file.type;
 					size = file.size;
-					reader.readAsDataURL(file);
 
 					reader.onload = function(evt) {
 						if (isTypeValid(type)) {

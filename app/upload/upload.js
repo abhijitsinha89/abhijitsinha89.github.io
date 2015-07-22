@@ -1,7 +1,5 @@
-'use strict'
-
 app.controller('Upload', ['$scope', '$http', function($scope, $http) {
-   $scope.imagePlaceholder = [1,2,3,4,5,6,7,8,9];
-   $scope.image = null
-    $scope.imageFileName = ''
+   $scope.imagePlaceholder = ['View 1','View 2','View 3','View 4','View 5', 'View 6'];
+   $scope.image = null;
+    $scope.imageFileName = '';
 }]);
