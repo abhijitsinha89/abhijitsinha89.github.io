@@ -1,15 +1,14 @@
 <section data-ng-controller="Upload">
-  <h1 class="text-center">Upload and Reorder Images</h1>
+  <div class="menu-item">
+    <a href ="#/upload-drag">Click here to Drag and Upload : Uplaod images to browser and drag to reorder</a>
+  </div>
+  <h1 class="text-center page-header">Reorder Images</h1>
    <ul>
         <li ng-repeat="i in imagePlaceholder" class="imageContainer col-md-4">
           <div class="imagePlaceholder-innerwrapper">
-            <div class="fileDropZone" drag-image-files="[image/png, image/jpeg, image/gif]"
-                          file="image" file-name="imageFileName">
-              <span class="image-placeholder-text">Drop Image Here for {{i}}</span>
-            </div>
             <div class="displayImage" drag-swap-files draggable="true" id="div{{ $index + 1 }}">
-              <img ng-src={{image}}  id="img{{ $index + 1 }}"/>
-              <span class="file-name" id="name{{ $index + 1 }}">{{imageFileName}}</span>
+             <img ng-src="content/images/{{ $index + 1 }}.jpg"  id="img{{ $index + 1 }}"/>
+              <span class="file-name" id="name{{ $index + 1 }}">content/images/{{ $index + 1 }}.jpg</span>
             </div>
           </div>
         </li>

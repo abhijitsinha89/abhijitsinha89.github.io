@@ -6,39 +6,55 @@ app.directive('dragSwapFiles', function() {
 			fileName: '='
 		},
 		link: function(scope, element, attrs) {
-			var enableDragDrop, dragStart,allowDrop,drag,drop;
+			var dragover, dragenter,
+			dragStart,dragLeave, drop;
+			window.currentDraggedElement = null;
 
-
-			enableDragDrop = function(event) {
+			dragover = function(event) {
 				if (event !== null) {
 					event.preventDefault();
 					event.dataTransfer.effectAllowed = 'move';
 				}
 			};
 
+			dragenter = function(event) {
+				if (event !== null) {
+					event.preventDefault();
+					this.classList.add("active-drop");
+				}
+			};
 
-			drag = function(ev) {
-			    ev.dataTransfer.setData("src", ev.target.id);
-			}
+			dragLeave = function (event) {
+				if (event !== null) {
+					event.preventDefault();
+					this.classList.remove("active-drop");
+				}
+			};
 
-			dragStart = function(event) {
-				event.dataTransfer.setData("src", event.target.id);
-			}
+			 dragStart = function(event) {
+				event.dataTransfer.setData("src", this.innerHTML);
+				this.classList.add('draggableElement');
+				currentDraggedElement = this;
+			};
 
-			element.bind('dragover', enableDragDrop);
-			element.bind('dragenter', enableDragDrop);
-			element.bind('dragstart', drag);
-
-
-			return element.bind('drop', function(event) {
+			drop = function(event) {
 				event.preventDefault();
-				var src = document.getElementById(event.dataTransfer.getData("src")),
-				srcParent = src.parentNode,
-				 tgt = event.currentTarget.firstElementChild;
+				if (currentDraggedElement !== this) {
+					var that = this;
+					currentDraggedElement.classList.remove('draggableElement');
+					currentDraggedElement.innerHTML = this.innerHTML;
+					this.classList.remove("active-drop");
+    				this.innerHTML = event.dataTransfer.getData('src');
+    				this.classList.add('set-element-after-drop');
+    				setTimeout(function(){ that.classList.remove('set-element-after-drop'); }, 1000);
+				}
+			};
 
-				event.currentTarget.replaceChild(src, tgt);
-    			srcParent.appendChild(tgt);
-			});
+			element.bind('dragover', dragover);
+			element.bind('dragenter', dragenter);
+			element.bind('dragstart', dragStart);
+			element.bind('dragleave', dragLeave);
+			element.bind('drop', drop);
 		}
 	};
 });

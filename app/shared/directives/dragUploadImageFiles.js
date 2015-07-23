@@ -7,30 +7,24 @@ app.directive('dragImageFiles', function() {
 		},
 		link: function(scope, element, attrs) {
 			var isTypeValid,
-			enableDragDrop,
+			dragenter,dragover,drop,
 			validMimeTypes = attrs.dragImageFiles;
 
-			enableDragDrop = function(event) {
+			dragenter = function(event) {
 				if (event !== null) {
 					event.preventDefault();
 					event.dataTransfer.effectAllowed = 'copy';
 				}
 			};
 
-			isTypeValid = function(type) {
-				if (validMimeTypes.indexOf(type) > -1) {
-					return true;
-				}
-				else {
-					alert('Invalid file type, file must be one of following types ' + validMimeTypes);
-					return false;
+			dragover = function(event) {
+				if (event !== null) {
+					event.preventDefault();
+					event.dataTransfer.effectAllowed = 'copy';
 				}
 			};
 
-			element.bind('dragover', enableDragDrop);
-			element.bind('dragenter', enableDragDrop);
-
-			return element.bind('drop', function(event) {
+			drop = function(event) {
 				var file, name, reader, size, type;
 
 				if (event !== null) {
@@ -55,7 +49,22 @@ app.directive('dragImageFiles', function() {
 					};
 					return false;
 				}
-			});
+			};
+
+			isTypeValid = function(type) {
+				if (validMimeTypes.indexOf(type) > -1) {
+					return true;
+				}
+				else {
+					alert('Invalid file type, file must be one of following types ' + validMimeTypes);
+					return false;
+				}
+			};
+
+			element.bind('dragover', dragover);
+			element.bind('dragenter', dragenter);
+			element.bind('drop', drop);
+
 		}
 	};
 });

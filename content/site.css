@@ -1,16 +1,56 @@
+
+body {
+  background-color : #F0F0F0;
+}
+
+.page-header {
+  margin: 20px 0;
+}
+
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-item a {
+  padding: 10px;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  background-color: #fff;
+  color : #333;
+}
+
+.menu-item a:hover {
+  background-color: #61CADD;
+  color : #fff;
+  font-weight: 400;
+}
+
 .lowerZindex {
   z-index : -2 !important;
+}
+
+.active-drop {
+  border: 2px solid rgba(244, 67, 54,1);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.09), 0 0 8px rgba(244, 67, 54, .9);
+}
+
+.draggableElement {
+  border: 3px solid #3F51B5;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
 
 .imageContainer {
   display: inline-block;
   list-style: none;
   position: relative;
-  min-height: 300px;
+  height: 300px;
 }
 
 .imagePlaceholder-innerwrapper {
-  padding: 0 10px;
+  margin: 20px 0;
+  padding: 0 20px;
 }
 
 .image-placeholder-text {
@@ -34,24 +74,34 @@
   top : 0;
   left :0;
   width: 95%;
-  height: 300px;
+  height: 280px;
 }
 
 .displayImage .file-name {
   position: absolute;
   z-index: 0;
-  bottom: 15px;
+  bottom: 0;
   width: 100%;
   background: #000;
-  opacity: 0.6;
+  opacity: 0.8;
   height: 40px;
-  color: #ff0;
-  font-size: 1.5em;
+  color: #fff;
+  font-size: 1.2em;
   text-align: center;
   z-index: 1;
+  line-height: 2.1em;
 }
 
 .displayImage img {
-   max-width: 100%;
-   min-height:95%;
+   width: 100%;
+   height:100%;
+}
+
+.set-element-after-drop {
+  animation : pop-in 1s;
+}
+
+@keyframes pop-in {
+0% { opacity: 0;transform: scale(0.5); }
+100% { opacity: 1;transform: scale(1); }
 }

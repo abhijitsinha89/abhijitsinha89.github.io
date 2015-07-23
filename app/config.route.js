@@ -18,7 +18,14 @@ function getRoutes() {
             url: '/',
             config: {
                 title: 'home',
-                templateUrl:  'app/upload/upload.html'
+                templateUrl:  'app/drag/drag.html'
+            }
+        },
+        {
+            url: '/upload-drag',
+            config: {
+                title: 'upload-drag',
+                templateUrl:  'app/upload-drag/upload-drag.html'
             }
         }
     ];
