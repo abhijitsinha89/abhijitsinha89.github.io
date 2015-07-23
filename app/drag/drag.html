@@ -6,7 +6,7 @@
    <ul>
         <li ng-repeat="i in imagePlaceholder" class="imageContainer col-md-4">
           <div class="imagePlaceholder-innerwrapper">
-            <div class="displayImage" draggable="true" id="div{{ $index + 1 }}">
+            <div class="displayImage" drag-swap-files draggable="true" id="div{{ $index + 1 }}">
              <img ng-src="content/images/{{ $index + 1 }}.jpg"/>
               <span class="file-name" id="name{{ $index + 1 }}">content/images/{{ $index + 1 }}.jpg</span>
             </div>
