@@ -7,7 +7,7 @@ var createImage = function (newImage) {
             fileName: newImage.fileName
         };
     },
-    images;
+    images = {};
 
 this.updateImageObject = function (imageDetails) {
     if(images[imageDetails.orderId]) {
@@ -19,6 +19,10 @@ this.createNewImage = function (imageDetails) {
     if(!images[imageDetails.orderId]) {
         images[imageDetails.orderId] =  createImage(imageDetails);
     }
+}
+
+this.returnImages = function () {
+    return images;
 }
 
 }]);

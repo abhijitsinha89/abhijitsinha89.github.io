@@ -1,4 +1,4 @@
-<section data-ng-controller="Upload">
+<section data-ng-controller="Drag">
   <div class="menu-item">
     <a href ="#/upload-drag">Click here to Drag and Upload : Uplaod images to browser and drag to reorder</a>
   </div>
@@ -6,8 +6,8 @@
    <ul>
         <li ng-repeat="i in imagePlaceholder" class="imageContainer col-md-4">
           <div class="imagePlaceholder-innerwrapper">
-            <div class="displayImage" drag-swap-files draggable="true" id="div{{ $index + 1 }}">
-             <img ng-src="content/images/{{ $index + 1 }}.jpg"  id="img{{ $index + 1 }}"/>
+            <div class="displayImage" draggable="true" id="div{{ $index + 1 }}">
+             <img ng-src="content/images/{{ $index + 1 }}.jpg"/>
               <span class="file-name" id="name{{ $index + 1 }}">content/images/{{ $index + 1 }}.jpg</span>
             </div>
           </div>
