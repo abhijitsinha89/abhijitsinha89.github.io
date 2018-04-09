@@ -12,19 +12,30 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-flow: column;
         height: 85vh;
         font-family: 'Montserrat', sans-serif;
     }
 
     header h1 {
-    	color: #5a5a5a;
-    	font-size: 2.5em;
+        color: #5a5a5a;
+        font-size: 2.5em;
+    }
+
+    .self {
+        background: url('./self.png') no-repeat;
+        width: 250px;
+        height: 250px;
+        background-size: cover;
+        border-radius: 50%;
+        background-position: center center;
     }
     </style>
 </head>
 
 <body class="container">
     <header>
+        <div class="self"></div>
         <h1>Abhijit Sinha</h1>
     </header>
 </body>
